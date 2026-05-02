@@ -15,7 +15,7 @@ client = OpenAI(
     api_key=os.getenv("OPENROUTER_API_KEY"),
 )
 
-MODEL = "deepseek/deepseek-chat-v3-0324"
+MODEL = "openai/gpt-4o-mini"
 
 # --- Step 1: Get tools from MCP server and convert to OpenAI format ---
 async def get_mcp_tools(session: ClientSession):
