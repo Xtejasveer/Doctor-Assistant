@@ -277,7 +277,7 @@ CREATE DATABASE doctor_assistant;
 
 ```bash
 cd backend
-uv run python calendar_service.py
+python calendar_service.py
 ```
 
 This will open a browser window for Google OAuth consent. After authorizing, a `token.pickle` file will be created for future use.
@@ -293,7 +293,7 @@ Populate the database with sample doctors, availability slots, and appointments:
 
 ```bash
 cd backend
-uv run python seed.py
+python seed.py
 ```
 
 This creates:
@@ -319,7 +319,7 @@ You need **two terminals** running simultaneously:
 **Terminal 1 — Backend (FastAPI server):**
 ```bash
 cd backend
-uv run uvicorn main:app --reload
+uvicorn main:app --reload
 ```
 
 **Terminal 2 — Frontend (Vite dev server):**
