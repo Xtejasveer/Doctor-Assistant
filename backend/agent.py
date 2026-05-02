@@ -1,4 +1,3 @@
-# backend/agent.py
 
 import json
 import os

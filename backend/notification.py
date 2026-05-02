@@ -1,4 +1,3 @@
-# backend/notification.py
 
 import os
 import httpx
@@ -25,8 +24,6 @@ def send_doctor_report_slack(
         ])
     else:
         patient_lines = "No appointments scheduled."
-
-    # Build Slack message blocks (nicely formatted)
     message = {
         "blocks": [
             {

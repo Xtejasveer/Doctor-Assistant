@@ -12,13 +12,12 @@ app = FastAPI()
 # Allow React frontend to talk to this backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Vite default port
+    allow_origins=["http://localhost:5173"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Store conversation histories per session
 # Key = session_id, Value = list of messages
 conversation_store = {}
 
@@ -27,7 +26,7 @@ conversation_store = {}
 class ChatRequest(BaseModel):
     session_id: str
     message: str
-    role: str = "patient"  # "patient" or "doctor"
+    role: str = "patient"  
 
 class ChatResponse(BaseModel):
     response: str

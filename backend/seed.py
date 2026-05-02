@@ -1,4 +1,3 @@
-# backend/seed.py
 
 from database import engine, Base, SessionLocal, Doctor, Availability, Appointment
 from datetime import date, timedelta

@@ -1,4 +1,3 @@
-// frontend/src/DoctorDashboard.jsx
 
 import { useState } from "react"
 import axios from "axios"
