@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-dotenv
+mcp
+openai
+httpx
+fastapi
+uvicorn
+sendgrid
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
