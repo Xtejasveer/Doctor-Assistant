@@ -160,6 +160,9 @@ Always be helpful, clear and concise."""
                     # If no tool calls, LLM is done - return final response
                     if not response_message.tool_calls:
                         final_response = response_message.content
+
+                        if not final_response:
+                            final_response = "I'm sorry, I couldn't process that request. Please try again."
                         
                         # Add assistant response to history
                         conversation_history.append({
