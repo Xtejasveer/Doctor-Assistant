@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16
+    env_file: backend/.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      retries: 10
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file: backend/.env
+    volumes:
+      # MCP server runs as a subprocess that doesn't inherit env vars; it reads this file
+      - ./backend/.env:/app/.env:ro
+      - ./backend/credentials.json:/app/credentials.json:ro
+      - ./backend/token.pickle:/app/token.pickle
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  pgdata:

@@ -24,7 +24,7 @@ export default function DoctorDashboard() {
     setLoading(true)
 
     try {
-      const response = await axios.post("http://localhost:8000/doctor/report", {
+      const response = await axios.post("/api/doctor/report", {
         session_id: SESSION_ID,
         message: userMessage,
         role: "doctor"

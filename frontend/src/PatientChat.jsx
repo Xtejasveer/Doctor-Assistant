@@ -32,7 +32,7 @@ export default function PatientChat() {
     setLoading(true)
 
     try {
-      const response = await axios.post("http://localhost:8000/chat", {
+      const response = await axios.post("/api/chat", {
         session_id: SESSION_ID,
         message: userMessage,
         role: "patient"
